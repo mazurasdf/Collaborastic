@@ -33,6 +33,9 @@
   In the first terminal, run `npm run start`.
   
   :tada:***Congratulations!!**:tada: * Your server is now up and running!
+
+  ## ERD
+  ![Entity Relationship Diagram](/images/erd.png)
   
   
   ### Questions?
