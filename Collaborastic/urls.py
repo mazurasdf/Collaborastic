@@ -20,5 +20,9 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^api/test/$', views.test)
+    # re_path(r'^api/test/$', views.test),
+    # re_path(r'^api/users/$', views.all_users)
+    path('api/test/', views.test),
+    path('api/users/', views.all_users),
+    path('api/users/create/', views.create_user)
 ]
