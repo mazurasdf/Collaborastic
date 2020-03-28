@@ -51,4 +51,3 @@ class Event_Job(models.Model):
 	# event place is no preference(0),in person(1), online(2), both(3)
 	tags = models.ManyToManyField(Tag, related_name="event_jobs")
 	partner_description = models.TextField()
-
