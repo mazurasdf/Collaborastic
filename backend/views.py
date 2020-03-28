@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.core import serializers
-from .models import User
+from .models import User, Event_Job
 
 # TODO error validations should return JSON response with errors
 
@@ -65,6 +65,28 @@ def edit_user(request, user_id):
 
 	this_user.save()
 
+	return JsonResponse({
+		'response': 1
+	})
+
+def all_event_jobs(request):
+	dataset = list(Event_Job.objects.values())
+	return JsonResponse({"results":dataset}, safe=False)
+
+def create_event_job(request):
+	# TODO verify correct user logged in and is POST
+
+	new_event_job = Event_Job.objects.create(
+		creator=request.POST['creator'],
+		description=request.POST['description'],
+		struggle=request.POST['struggle'],
+		date_decided=request.POST['date_decided'],
+		scope_date=request.POST['scope_date'],
+		pay_hour=request.POST['pay_hour'],
+		pay_total=request.POST['pay_total'],
+		event_place=request.POST['event_place'],
+		partner_description=request.POST['partner_description'])
+	
 	return JsonResponse({
 		'response': 1
 	})

@@ -27,5 +27,7 @@ urlpatterns = [
     path('api/users/create/', views.create_user),
     path('api/users/<int:user_id>/delete/', views.delete_user),
     path('api/users/<int:user_id>/edit/', views.edit_user),
-    path('api/users/<int:user_id>/', views.show_single_user)
+    path('api/users/<int:user_id>/', views.show_single_user),
+    path('api/event_jobs/', views.all_event_jobs),
+    path('api/event_jobs/create/', views.create_event_job)
 ]
