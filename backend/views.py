@@ -10,15 +10,12 @@ def test(request):
 	})
 
 def all_users(request):
-	print("trying to send all users")
 	dataset = list(User.objects.values())
 	return JsonResponse({"results":dataset}, safe=False)
 
 def create_user(request):
 	# TODO validate
 	# TODO bcrypt
-
-	print(request.POST)
 
 	new_user = User.objects.create(
 		email=request.POST['email'],
@@ -30,6 +27,16 @@ def create_user(request):
 		location=request.POST['location'],
 		bio=request.POST['bio'])
 
+	return JsonResponse({
+		'response': 1
+	})
+
+def delete_user(request, user_id):
+	# TODO make this delete request only
+	this_user = User.objects.get(id=user_id)
+	# TODO check if user is logged in
+	User.objects.get(id=user_id).delete()
+	# also would be nice to get this to display correctly
 	return JsonResponse({
 		'response': 1
 	})

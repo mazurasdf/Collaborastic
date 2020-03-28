@@ -24,5 +24,6 @@ urlpatterns = [
     # re_path(r'^api/users/$', views.all_users)
     path('api/test/', views.test),
     path('api/users/', views.all_users),
-    path('api/users/create/', views.create_user)
+    path('api/users/create/', views.create_user),
+    path('api/users/<int:user_id>/delete', views.delete_user)
 ]
