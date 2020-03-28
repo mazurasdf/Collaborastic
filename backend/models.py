@@ -18,8 +18,8 @@ class User(models.Model):
 	experience = models.CharField(max_length=50)
 	location = models.CharField(max_length=50, blank=True)
 	bio = models.TextField(blank=True)
-	connections = models.ManyToManyField("self", blank=True, symmetrical=True)
-	skills = models.ForeignKey(Skill, related_name="users", on_delete=models.CASCADE, blank=True)
+	connections = models.ManyToManyField("self", blank=True,  symmetrical=True)
+	skills = models.ManyToManyField(Skill, related_name="users")
 	# events
 	# collaborations
 	# attending

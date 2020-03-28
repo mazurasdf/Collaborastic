@@ -21,14 +21,14 @@ def create_user(request):
 	print(request.POST)
 
 	new_user = User.objects.create(
-		email=request.POST.get('email',''),
-		password=request.POST.get('password',''),
-		first_name=request.POST.get('first_name',''),
-		last_name=request.POST.get('last_name',''),
-		expertise=request.POST.get('expertise',0),
-		experience=request.POST.get('experience',0),
-		location=request.POST.get('location',''),
-		bio=request.POST.get('bio',''))
+		email=request.POST['email'],
+		password=request.POST['password'],
+		first_name=request.POST['first_name'],
+		last_name=request.POST['last_name'],
+		expertise=request.POST['expertise'],
+		experience=request.POST['experience'],
+		location=request.POST['location'],
+		bio=request.POST['bio'])
 
 	return JsonResponse({
 		'response': 1
