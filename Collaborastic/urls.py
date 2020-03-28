@@ -20,5 +20,14 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^api/test/$', views.test)
+    # re_path(r'^api/test/$', views.test),
+    # re_path(r'^api/users/$', views.all_users)
+    path('api/test/', views.test),
+    path('api/users/', views.all_users),
+    path('api/users/create/', views.create_user),
+    path('api/users/<int:user_id>/delete/', views.delete_user),
+    path('api/users/<int:user_id>/edit/', views.edit_user),
+    path('api/users/<int:user_id>/', views.show_single_user),
+    path('api/event_jobs/', views.all_event_jobs),
+    path('api/event_jobs/create/', views.create_event_job)
 ]
